@@ -1,5 +1,5 @@
 <?php
-
+// index.php site + list patients
 namespace App\Controller;
 
 use App\Entity\Patients;
