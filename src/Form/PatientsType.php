@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 class PatientsType extends AbstractType
 {
@@ -29,7 +29,8 @@ class PatientsType extends AbstractType
                 'attr'=>['class' => 'form-control']
                 
             ])
-            ->add('birthDate',  DateType::class, [
+            ->add('birthDate',  BirthdayType::class, [
+                'widget' => 'single_text',
                 'label' => 'Date de naissance : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'mt-3 mb-3 combinedPickerInput'],
