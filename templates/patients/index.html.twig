@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Patients index{% endblock %}
+{% block title %}Liste des Patients{% endblock %}
 
 {% block body %}
-    <h1>Patients index</h1>
+    <h1>Liste des Patients</h1>
 
     <table class="table">
         <thead>
@@ -23,12 +23,12 @@
                 <td>{{ patient.id }}</td>
                 <td>{{ patient.lastname }}</td>
                 <td>{{ patient.firstname }}</td>
-                <td>{{ patient.birthDate ? patient.birthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ patient.birthDate ? patient.birthDate|date('d-m-Y') : '' }}</td>
                 <td>{{ patient.email }}</td>
                 <td>{{ patient.vitalcardNumber }}</td>
                 <td>
-                    <a href="{{ path('patients_show', {'id': patient.id}) }}">show</a>
-                    <a href="{{ path('patients_edit', {'id': patient.id}) }}">edit</a>
+                    <a class="btn btn-success"  title="Voir la fiche du patient" href="{{ path('patients_show', {'id': patient.id}) }}">Voir la fiche du patient</a>                   
+                    <a class="btn btn-primary"  title="Modifier la fiche du patient" href="{{ path('patients_edit', {'id': patient.id}) }}">Modifier la fiche du patient</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('patients_new') }}">Create new</a>
+    <a class="btn btn-primary" title="Ajouter nouveau patient" href="{{ path('patients_new') }}">Ajouter nouveau patient</a>
 {% endblock %}

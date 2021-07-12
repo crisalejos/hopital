@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
+        {#{% block stylesheets %}#}
             {#{{ encore_entry_link_tags('app') }}#}
             {#[main.css, jobs.css, job.css, print: { media: print }]#}
+        {#{% endblock %}#}
+
+        {% block stylesheets %}
+            <!-- CSS bootstrap  -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+            <!-- CSS site  
+            <link href="style.css" rel="stylesheet" >-->
         {% endblock %}
 
         {% block javascripts %}
@@ -15,6 +23,58 @@
         {% endblock %}
     </head>
     <body>
+
+    <!-- header -->
+	<header class="navigation border-bottom border-bottom-4 border-primary">
+	<nav class="navbar navbar-expand-lg navbar-light ">
+		<div class="container">
+		  <a href="{{ path('patients_index') }}" class="navbar-brand"><img class="logo" src="build/images/logo-hopital.gif" alt="Logo Hopital Lamanu"></a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+			<ul class="navbar-nav"  >			  
+			  <li class="nav-item p-2">
+				<a class="btn btn-primary" title="Ajouter nouveau patient" href="{{ path('patients_new') }}">Ajouter nouveau patient</a>
+			  </li>
+			  
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+	  </header><!-- end header -->
+      <main class="container mt-3 mb-3">
+
         {% block body %}{% endblock %}
+    
+      </main>
+
+
+<footer class=" text-center bg-primary p-4" >
+<!-- Grid container -->
+<div class="container p-4 pb-0">
+	<div class="row">
+		<div class="col-md-6">
+			<nav class="menu-bottom">
+			<ul class="list-unstyled mt-3">
+				<li class="d-md-inline">
+				<a class="link-light text-decoration-none p-3" href="contact.html">
+				Contacter L'Hôpital</a>
+				</li>
+				<li class="d-md-inline">
+				<a class="link-light text-decoration-none p-3" href="#">
+				Mentions légales</a>
+				</li>
+			</ul>
+			</nav>
+		</div>
+		<div class="col-md-6">
+			<a href="{{ path('patients_index') }}" class="navbar-brand"><img class="logo" src="build/images/logo-hopital.gif" alt="Logo Hopital Lamanu"></a>
+		</div>
+	</div>
+	<!-- end row-->
+</div>
+<!-- Grid container -->
+</footer>
     </body>
 </html>

@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>BirthDate</th>
-                <td>{{ patient.birthDate ? patient.birthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ patient.birthDate ? patient.birthDate|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Email</th>
@@ -34,9 +34,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('patients_index') }}">back to list</a>
+    <a  title="Voir la liste des patients" href="{{ path('patients_index') }}">Voir la liste des patients</a>
 
-    <a href="{{ path('patients_edit', {'id': patient.id}) }}">edit</a>
+    <a title="Modifier le patient" href="{{ path('patients_edit', {'id': patient.id}) }}">Modifier le patient</a>
+
+   
 
     {{ include('patients/_delete_form.html.twig') }}
 {% endblock %}

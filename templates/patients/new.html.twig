@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Patients{% endblock %}
+{% block title %}Nouveau patient{% endblock %}
 
 {% block body %}
-    <h1>Create new Patients</h1>
+    <h1>Nouveau patient</h1>
 
     {{ include('patients/_form.html.twig') }}
 
-    <a href="{{ path('patients_index') }}">back to list</a>
+    <a title="Voir la liste des patients" href="{{ path('patients_index') }}">Voir la liste des patients</a>
 {% endblock %}
