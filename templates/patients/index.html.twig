@@ -29,7 +29,9 @@
                 <td>
                     <a class="btn btn-success"  title="Voir la fiche du patient" href="{{ path('patients_show', {'id': patient.id}) }}"><i class="fas fa-eye"></i></a>                   
                     <a class="btn btn-primary"  title="Modifier la fiche du patient" href="{{ path('patients_edit', {'id': patient.id}) }}"><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-secondary"  title="Modifier la fiche du patient" href="{{ path('patients_edit', {'id': patient.id}) }}"><i class="fal fa-calendar-alt"></i></a>
+                    
+
+                    <a class="btn btn-secondary"  title="Rendez-vous du patient" href="{{ path('appointments_index', {'id': patient.id}) }}"><i class="fal fa-calendar-alt"></i></a>
                 </td>
             </tr>
         {% else %}

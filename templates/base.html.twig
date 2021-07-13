@@ -15,7 +15,7 @@
             <!-- CSS bootstrap  -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
             <!-- CSS site  -->
-            <link href="build/css/style.css" rel="stylesheet" >
+            <link href="{{ path('css') }}" rel="stylesheet" >
         {% endblock %}
 
         {% block javascripts %}
@@ -32,7 +32,8 @@
 	<header class="navigation border-bottom border-bottom-4 border-primary">
 	<nav class="navbar navbar-expand-lg navbar-light ">
 		<div class="container">
-		  <a href="{{ path('patients_index') }}" class="navbar-brand"><img class="logo" src="build/images/logo-hopital.gif" alt="Logo Hopital Lamanu"></a>
+		  <a href="{{ path('patients_index') }}" class="navbar-brand">
+		  <img src="{{ path('logo') }}" alt="Logo Hopital Lamanu" /></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -42,8 +43,13 @@
 				<a class="btn btn-primary" title="Ajouter nouveau patient" href="{{ path('patients_new') }}">Ajouter nouveau patient</a>
 			  </li>
 			  <li class="nav-item p-2">
-				<a class="btn btn-primary" title="Ajouter nouveau patient" href="{{ path('patients_index') }}">Liste</a>
+				<a class="btn btn-primary" title="Ajouter nouveau patient" href="{{ path('patients_index') }}">Liste de patients</a>
 			  </li>
+			  <li class="nav-item p-2">
+			  <a class="btn btn-primary" href="{{ path('appointments_index') }}">Rendez-vous</a>
+				
+			  </li>
+			  
 			</ul>
 		  </div>
 		</div>
@@ -75,7 +81,8 @@
 			</nav>
 		</div>
 		<div class="col-md-6">
-			<a href="{{ path('patients_index') }}" class="navbar-brand"><img class="logo" src="build/images/logo-hopital.gif" alt="Logo Hopital Lamanu"></a>
+			<a href="{{ path('patients_index') }}" class="navbar-brand">
+		  <img src="{{ path('logo') }}" alt="Logo Hopital Lamanu" /></a>
 		</div>
 	</div>
 	<!-- end row-->

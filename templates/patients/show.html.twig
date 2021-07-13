@@ -34,11 +34,19 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" title="Voir la liste des patients" href="{{ path('patients_index') }}">Voir la liste des patients</a>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" title="Modifier le patient" href="{{ path('patients_edit', {'id': patient.id}) }}">Modifier le patient</a>
+        </div>
+        <div class="col text-end">
+            {{ include('patients/_delete_form.html.twig') }}
+        </div>
+    </div>
+    
 
-    <a class="btn btn-primary" title="Modifier le patient" href="{{ path('patients_edit', {'id': patient.id}) }}">Modifier le patient</a>
+    
 
    
 
-    {{ include('patients/_delete_form.html.twig') }}
+    
 {% endblock %}

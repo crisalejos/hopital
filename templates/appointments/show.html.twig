@@ -12,19 +12,19 @@
                 <td>{{ appointment.id }}</td>
             </tr>
             <tr>
-                <th>StartTime</th>
-                <td>{{ appointment.startTime ? appointment.startTime|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Date début</th>
+                <td>{{ appointment.startTime ? appointment.startTime|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>EndTime</th>
-                <td>{{ appointment.endTime ? appointment.endTime|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Date fin</th>
+                <td>{{ appointment.endTime ? appointment.endTime|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('appointments_index') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('appointments_index') }}">Voir la liste de Rendez-vous</a>
 
-    <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">edit</a>
+    <a class="btn btn-primary" href="{{ path('appointments_edit', {'id': appointment.id}) }}">Modifier le Rendez-vous</a>
 
     {{ include('appointments/_delete_form.html.twig') }}
 {% endblock %}

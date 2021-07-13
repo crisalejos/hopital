@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\PatientsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=PatientsRepository::class)
+ * @UniqueEntity("email")
+ * @UniqueEntity("vitalcardNumber")
  */
 class Patients
 {
@@ -24,21 +28,29 @@ class Patients
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "[a-zA-Z]+"
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $birthDate;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=11)
+     * @Assert\NotBlank
      */
     private $vitalcardNumber;
 

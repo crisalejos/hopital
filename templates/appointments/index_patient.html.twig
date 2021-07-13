@@ -3,7 +3,7 @@
 {% block title %}Appointments index{% endblock %}
 
 {% block body %}
-    <h1>Appointments index</h1>
+    <h1>Appointments index du patient</h1>
 
     <table class="table">
         <thead>
@@ -21,8 +21,9 @@
                 <td>{{ appointment.startTime ? appointment.startTime|date('d-m-Y H:i:s') : '' }}</td>
                 <td>{{ appointment.endTime ? appointment.endTime|date('d-m-Y H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('appointments_show', {'id': appointment.id}) }}">show</a>
-                    <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">edit</a>
+                    <a href="{{ path('appointments_show', {'id': patient.id}) }}">show</a>
+                    <a href="{{ path('appointments_edit', {'id': patient.id}) }}">edit</a>
+                    
                 </td>
             </tr>
         {% else %}

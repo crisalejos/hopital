@@ -1,4 +1,34 @@
+<div class="form-control">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row m-3">
+        <div class="col-md-6">
+            {{ form_row(form.startTime) }}
+            
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.endTime) }}
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-md-6">
+            {{ form_row(form.patient) }}
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+   
+    <div class="row mt-3 mb-3 text-end">
+        <div class="col-md-12">
+           <button class="btn btn-primary">{{ button_label|default('Enregistrer la date') }}</button>
+        </div>
+        
+    </div>
+    
+    
 {{ form_end(form) }}
+</div>

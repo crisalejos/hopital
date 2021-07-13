@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Appointments;
+use App\Entity\Patients;
 use App\Form\AppointmentsType;
 use App\Repository\AppointmentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,6 +22,17 @@ class AppointmentsController extends AbstractController
     public function index(AppointmentsRepository $appointmentsRepository): Response
     {
         return $this->render('appointments/index.html.twig', [
+            'appointments' => $appointmentsRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/", name="appointments_patient_index", methods={"GET"})
+     */
+    public function patient_index(AppointmentsRepository $appointmentsRepository): Response
+    {
+       //intento recuperar id del paciente    $this->getPatient();
+        return $this->render('appointments/index_patient.html.twig', [
             'appointments' => $appointmentsRepository->findAll(),
         ]);
     }
