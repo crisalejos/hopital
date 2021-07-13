@@ -22,6 +22,23 @@ class PatientsRepository extends ServiceEntityRepository
     // /**
     //  * @return Patients[] Returns an array of Patients objects
     //  */
+
+    public function findByNameOrFirstName($value)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.lastname like :val')
+            ->orWhere('p.firstname like :val')
+            ->setParameter('val',  '%'.$value.'%')
+            ->orderBy('p.lastname,p.firstname', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Patients[] Returns an array of Patients objects
+    //  */
     /*
     public function findByExampleField($value)
     {

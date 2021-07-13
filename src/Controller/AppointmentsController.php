@@ -31,9 +31,9 @@ class AppointmentsController extends AbstractController
      */
     public function patient_index(AppointmentsRepository $appointmentsRepository): Response
     {
-       //intento recuperar id del paciente    $this->getPatient();
+       //intento recuperar id del paciente    
         return $this->render('appointments/index_patient.html.twig', [
-            'appointments' => $appointmentsRepository->findAll(),
+            'appointments_patient_index' => $appointmentsRepository->filter('patient'),
         ]);
     }
 

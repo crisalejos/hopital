@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>StartTime</th>
                 <th>EndTime</th>
+                <th>Patient</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ appointment.id }}</td>
                 <td>{{ appointment.startTime ? appointment.startTime|date('d-m-Y H:i:s') : '' }}</td>
                 <td>{{ appointment.endTime ? appointment.endTime|date('d-m-Y H:i:s') : '' }}</td>
+                <td><a href="{{ path('appointments_patient_index', {'id': appointment.patient}) }}">{{ appointment.patient }}</a></td>
                 <td>
                     <a href="{{ path('appointments_show', {'id': appointment.id}) }}">show</a>
                     <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">edit</a>
@@ -27,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Il n'y a pas de rendez-vous</td>
             </tr>
         {% endfor %}
         </tbody>

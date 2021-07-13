@@ -16,7 +16,7 @@ class AppointmentsType extends AbstractType
     {
         $builder
             ->add('startTime',  DateTimeType ::class, [
-                'input'  => 'datetime',
+                //'input'  => 'datetime',
                 'widget' => 'choice',
                 
                 'label' => 'Date début rdv : ',
@@ -32,7 +32,7 @@ class AppointmentsType extends AbstractType
                 
             ])
             ->add('endTime',  DateTimeType ::class, [
-                'input'  => 'datetime',
+                //'input'  => 'datetime',
                 'widget' => 'choice',
                 
                 'label' => 'Date fin rdv : ',
@@ -48,7 +48,7 @@ class AppointmentsType extends AbstractType
 
                 //'mapped' => true,                // looks for choices from this entity
                 'class' => Patients::class,               
-                'choice_label' => 'lastName', // uses the User.username property as the visible option string
+               // 'choice_label' => 'lastName', // uses the User.username property as the visible option string
                 'placeholder' => 'Choisir le patient',
                 // used to render a select box, check boxes or radios
                 //'multiple' => true,

@@ -66,7 +66,7 @@ class Patients
 
     public function setLastname(string $lastname): self
     {
-        $this->lastname = $lastname;
+        $this->lastname = mb_strtoupper($lastname);
 
         return $this;
     }
@@ -117,5 +117,10 @@ class Patients
         $this->vitalcardNumber = $vitalcardNumber;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->firstname . ' ' . $this->lastname;
     }
 }
