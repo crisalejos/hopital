@@ -27,15 +27,15 @@ class AppointmentsController extends AbstractController
     }
 
     /**
-     * @Route("/", name="appointments_patient_index", methods={"GET"})
+     * @Route("/", name="appointments_search", methods={"POST"})
      */
-    public function patient_index(AppointmentsRepository $appointmentsRepository): Response
+    public function search(AppointmentsRepository $appointmentsRepository, Request $request): Response
     {
-       //intento recuperar id del paciente    
-        return $this->render('appointments/index_patient.html.twig', [
-            'appointments_patient_index' => $appointmentsRepository->filter('patient'),
+        return $this->render('appointments/index.html.twig', [
+            'appointments' => $appointmentsRepository->findAppointmentsPatient($request->request->get('search_appointment'))
         ]);
     }
+
 
     /**
      * @Route("/new", name="appointments_new", methods={"GET","POST"})

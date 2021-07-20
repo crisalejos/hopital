@@ -4,14 +4,18 @@
 
 {% block body %}
     <h1>Appointments index</h1>
-
+    <div class="container">
+        <form class="d-flex" method="POST">
+        		<input class="form-control me-2" type="date" name="search_appointment" placeholder="Search" aria-label="Search">
+       			 <button class="btn btn-secondary" type="submit">Search</button>
+    	</form>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>StartTime</th>
                 <th>EndTime</th>
-                <th>Patient</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,7 +25,6 @@
                 <td>{{ appointment.id }}</td>
                 <td>{{ appointment.startTime ? appointment.startTime|date('d-m-Y H:i:s') : '' }}</td>
                 <td>{{ appointment.endTime ? appointment.endTime|date('d-m-Y H:i:s') : '' }}</td>
-                <td><a href="{{ path('appointments_patient_index', {'id': appointment.patient}) }}">{{ appointment.patient }}</a></td>
                 <td>
                     <a href="{{ path('appointments_show', {'id': appointment.id}) }}">show</a>
                     <a href="{{ path('appointments_edit', {'id': appointment.id}) }}">edit</a>

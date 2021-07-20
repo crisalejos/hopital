@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use App\Repository\AppointmentsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -32,7 +32,7 @@ class Appointments
      * @ORM\JoinColumn(nullable=false)
      */
     private $patient;
-
+   
     public function getId(): ?int
     {
         return $this->id;

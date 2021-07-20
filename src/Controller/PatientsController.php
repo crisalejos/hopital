@@ -33,7 +33,7 @@ class PatientsController extends AbstractController
         return $this->render('patients/index.html.twig', [
             'patients' => $patientsRepository->findByNameOrFirstName($request->request->get('search'))
         ]);
-    } //, ['firstname' => $request->get('search')]
+    } 
 
     /**
      * @Route("/new", name="patients_new", methods={"GET","POST"})
@@ -102,18 +102,4 @@ class PatientsController extends AbstractController
         return $this->redirectToRoute('patients_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    /**
-     * @Route("/{id}", name="patients_appointments", methods={"POST"})
-     */
-    /* construction du bouton vers les appointement du patient
-    public function listAppointmentPatient(Request $request, Patients $patient): Response
-    {
-        if ($this->isCsrfTokenValid('listAppointmentPatient'.$patient->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->show($patient);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('patients_index', [], Response::HTTP_SEE_OTHER);
-    }*/
 }

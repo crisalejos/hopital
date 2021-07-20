@@ -4,7 +4,12 @@
 
 {% block body %}
     <h1>Liste des Patients</h1>
-
+    <div class="container">
+        <form class="d-flex" method="POST">
+        		<input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+       			 <button class="btn btn-secondary" type="submit">Search</button>
+    	</form>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -30,8 +35,9 @@
                     <a class="btn btn-success"  title="Voir la fiche du patient" href="{{ path('patients_show', {'id': patient.id}) }}"><i class="fas fa-eye"></i></a>                   
                     <a class="btn btn-primary"  title="Modifier la fiche du patient" href="{{ path('patients_edit', {'id': patient.id}) }}"><i class="fas fa-edit"></i></a>
                     
+                    
 
-                    <a class="btn btn-secondary"  title="Rendez-vous du patient" href="{{ path('appointments_index', {'id': patient.id}) }}"><i class="fal fa-calendar-alt"></i></a>
+                    
                 </td>
             </tr>
         {% else %}

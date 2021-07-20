@@ -6,6 +6,7 @@ use App\Repository\PatientsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=PatientsRepository::class)
@@ -52,7 +53,7 @@ class Patients
      * @ORM\Column(type="string", length=11)
      * @Assert\NotBlank
      */
-    private $vitalcardNumber;
+    private $vitalcardNumber;    
 
     public function getId(): ?int
     {

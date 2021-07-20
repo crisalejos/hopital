@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Liste des Appointments du Patient{% endblock %}
+{% block body %}
+<h1>Liste des Appointments de {{ patient.firstname }} {{ patient.lastname }}</h1>
+<ul>
+{% for appointment in patient.appointments %}
+<li>
+{{ appointment.startTime }}
+</li>
+{% endfor %}
+</ul>
+<a class="btn btn-primary" href="{{ path('appointments_index') }}">Liste de Rendez-vous</a>
+{% endblock %}

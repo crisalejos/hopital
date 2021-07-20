@@ -22,15 +22,16 @@ class AppointmentsRepository extends ServiceEntityRepository
     // /**
     //  * @return Appointments[] Returns an array of Appointments objects
     //  */
-    public function findByExampleField($value)
+    public function findAppointmentsPatient($value)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.startTime like :val')
+        //->orWhere('p.firstname like :val')
+        ->setParameter('val',  '%'.$value.'%')
+        ->orderBy('p.startTime', 'ASC')
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
         ;
     }
 
